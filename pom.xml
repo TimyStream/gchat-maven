@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>net.timystream.mc</groupId>
+  <artifactId>gchat-maven</artifactId>
+  <version>1.0.3</version>
+
+  <name>gchat-maven</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.velocitypowered</groupId>
+      <artifactId>velocity-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>net.luckperms</groupId>
+        <artifactId>api</artifactId>
+        <version>5.3</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>me.lucko.luckperms</groupId>
+      <artifactId>placeholders-common</artifactId>
+      <version>5.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>uk.co.n3fs.mc</groupId>
+      <artifactId>Neutron-N3FS</artifactId>
+      <version>5.0.0-SNAPSHOT</version>
+    </dependency>
+<!--     <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-serializer-configurate3</artifactId>
+      <version>4.3.0</version>
+      <scope>runtime</scope>
+    </dependency> -->
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>4.2.3</version>
+    </dependency>
+  
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-serializer-configurate3</artifactId>
+      <version>4.9.3</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+      <repository>
+          <id>velocity</id>
+          <url>https://nexus.velocitypowered.com/repository/maven-public/</url>
+      </repository>
+      <repository>
+        <id>ci.lucko.me</id>
+        <url>https://ci.lucko.me/plugin/repository/everything/</url>
+      </repository>
+      <repository>
+        <id>uk.co.n3fs.mc</id>
+        <url>https://repo.essentialsx.net/n3fs/</url>
+      </repository>
+  </repositories>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>*.yml</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+      </plugin>
+      <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.2</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
